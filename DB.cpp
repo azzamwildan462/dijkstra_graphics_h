@@ -2,7 +2,6 @@
 
 DB::DB()
 {
-    // vector<Node> node;
     banyak_node = 0; // inisialisasi awal banyak node adalah 0
 }
 
@@ -40,10 +39,6 @@ void DB::show()
     {
         if (node[i].nama.size() >= 0x8)
             panjang_nama = 1;
-        if (cariNodeTerdekatStr(node[i].nama).size() < 0x8)
-            panjang_terdekat = 0;
-        else if (cariNodeTerdekatStr(node[i].nama).size() >= 0x8)
-            panjang_terdekat = 1;
     }
 
     // Print header tabel
@@ -55,11 +50,6 @@ void DB::show()
     printf("X\t");
 
     printf("Y\t");
-
-    if (panjang_terdekat = 0)
-        printf("Terdekat");
-    else if (panjang_terdekat = 1)
-        printf("Terdekat\t");
 
     printf("Hubungan ");
 
@@ -83,11 +73,6 @@ void DB::show()
         cout << node[i].x << "\t";
 
         cout << node[i].y << "\t";
-
-        if (cariNodeTerdekatStr(node[i].nama).size() < 0x8)
-            cout << cariNodeTerdekatStr(node[i].nama) << "\t\t";
-        else if (cariNodeTerdekatStr(node[i].nama).size() >= 0x8)
-            cout << cariNodeTerdekatStr(node[i].nama) << "\t";
 
         if (node[i].tanda_akhir_hubungan_node == -1)
             printf("- ");
@@ -116,11 +101,6 @@ float DB::pitagoras(float x1, float y1, float x2, float y2)
     return sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1))); // Menggunakan rumus pitagoras untuk cari jarak
 }
 
-string DB::cariNodeTerdekatStr(string node_yang_ingin_dicari)
-{
-    return node[cariNodeTerdekat(node_yang_ingin_dicari)].nama; // Cari node terdekat berdasarkan parameter string
-}
-
 int DB::searchByName(string nama_node)
 {
     for (int i = 0; i < banyak_node; i++) // linear search
@@ -133,24 +113,6 @@ int DB::searchByName(string nama_node)
     // kalo sampek sini berarti node gk ditemukan
     //  printf("node gk ditemukan\n");
     return -1;
-}
-int DB::cariNodeTerdekat(string node_yang_ingin_dicari)
-{
-    int pos = searchByName(node_yang_ingin_dicari);
-    float min = INT_MAX;
-    int min_pos = pos;
-    for (int i = 0; i < banyak_node; i++)
-    {
-        if (i != pos)
-        {
-            if (min >= pitagoras(node[pos].x, node[pos].y, node[i].x, node[i].y))
-            {
-                min = pitagoras(node[pos].x, node[pos].y, node[i].x, node[i].y);
-                min_pos = i;
-            }
-        }
-    }
-    return min_pos;
 }
 void DB::connect2arah(string src, string dst)
 {

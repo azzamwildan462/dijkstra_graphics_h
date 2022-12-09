@@ -33,4 +33,6 @@ g++ main.cpp DB.a -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32; .\a.exe
 ```
 
 ## Using All in One
+```
 g++ AllinOne.cpp -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32; .\a.exe
+```
