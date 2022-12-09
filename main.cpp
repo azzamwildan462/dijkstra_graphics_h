@@ -25,7 +25,6 @@ int main()
     DbNode.connect2arah("Taman_Pelangi", "Bhayangkara");
     DbNode.connect2arah("Taman_Pelangi", "Dukuh_Menanggal");
     DbNode.connect2arah("Siwalankerto", "Dukuh_Menanggal");
-    // DbNode.connect2arah("Siwalankerto", "Taman_Pelangi");
 
     if (DbNode.cariRute("Siwalankerto", "Taman_Pelangi"))
     {
