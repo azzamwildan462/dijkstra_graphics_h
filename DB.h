@@ -10,6 +10,7 @@ using namespace std;
 class DB
 {
 private:
+    /* Struct untuk 1 node nya */
     typedef struct Node
     {
         string nama;
@@ -18,13 +19,21 @@ private:
         vector<int> hubungan_node;
         int tanda_akhir_hubungan_node;
     } Node;
+
+    /* Setiap node punya data jarak masing masing terhadap node lainnya */
     vector<vector<float>> data_jarak_node;
-    // Node node[100];
 
 private:
+    /**
+     * @brief Untuk resize vector 2 dimensi
+     * @param vector adalah vector yang akan di-resize
+     */
     void resizeVector2d(vector<vector<float>> vector, unsigned int size);
+
+    /**
+     * @brief Mendapatkan jalur dari hasil algoritma dijkstra
+     */
     void getPath(vector<int> path_temp, int dst);
-    void dijkstra(int graph[100][100], int src, int dst);
     int cariJarakTerkecilDijkstra(vector<int> jarak_antar_node, vector<bool> sudah_dilewati, unsigned int src);
     bool cekHubungan(int src_pos, int dst_pos);
 

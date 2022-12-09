@@ -31,3 +31,6 @@ rm DB.a; g++ -c DB.cpp; ar rvs DB.a DB.o; g++ main.cpp DB.a -lbgi -lgdi32 -lcomd
 ```
 g++ main.cpp DB.a -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32; .\a.exe
 ```
+
+## Using All in One
+g++ AllinOne.cpp -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32; .\a.exe
